@@ -55,7 +55,43 @@
           {% endif %}
           class="product-variant-id"
         >
+{%- comment -%} Custom Line Item Properties {%- endcomment -%}
+        <div class="product-form__input product-form__input--custom-properties">
+          
+          {%- comment -%} Text Input Field - Visible Everywhere {%- endcomment -%}
+          <div class="custom-property-field" style="margin-bottom: 20px;">
+            <label for="custom-text-input" style="display: block; margin-bottom: 8px; font-weight: 500;">
+              Custom Text (Optional)
+            </label>
+            <input 
+              type="text" 
+              id="custom-text-input" 
+              name="properties[Custom Text]" 
+              placeholder="Enter your custom text"
+              style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 4px;"
+            >
+          </div>
 
+          {%- comment -%} Dropdown Field - Hidden from Cart/Checkout {%- endcomment -%}
+          <div class="custom-property-field" style="margin-bottom: 20px;">
+            <label for="custom-dropdown" style="display: block; margin-bottom: 8px; font-weight: 500;">
+              Internal Note
+            </label>
+            <select 
+              id="custom-dropdown" 
+              name="properties[_Internal Note]"
+              style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 4px;"
+            >
+              <option value="">Select an option</option>
+              <option value="Priority Order">Priority Order</option>
+              <option value="Standard Processing">Standard Processing</option>
+              <option value="Gift Wrap Required">Gift Wrap Required</option>
+              <option value="Special Handling">Special Handling</option>
+            </select>
+          
+          </div>
+
+        </div>
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
